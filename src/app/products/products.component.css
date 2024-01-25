@@ -1,0 +1,16 @@
+/*Estilos de la tabla*/
+td{
+    padding: 10px 80px;  
+}
+tr:nth-child(even){
+    background-color: lightgray;
+}
+tr:hover{
+    background-color: rgb(135, 180, 252);
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+/*Estilos de la tabla*/
