@@ -13,4 +13,12 @@ table, th, td {
     border-collapse: collapse;
 }
 
+.tableButton {
+    background-color: rgb(246, 186, 186);
+    border: solid 1px black;
+    border-radius: 25%;
+    width: 65px;
+    height: 30px;
+}
+
 /*Estilos de la tabla*/

@@ -1,1 +1,5 @@
-<p [ngStyle]="{'background-color': categoria}">Producto Seleccionado: {{producto}}</p>
+<h2>Detalle del producto seleccionado:</h2>
+<h3>ID: {{producto?.id}}</h3>
+<h3>Nombre: {{producto?.name}}</h3>
+<h3>Precio: {{producto?.price | currency}}</h3>
+<h3>Descripción: {{producto?.description}}</h3>
