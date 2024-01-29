@@ -9,23 +9,11 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th>1</th>
-            <td>Lavandina</td>
-            <td>$10</td>
-            <button class="tableButton" [routerLink]="['/products','red','Lavandina']">Detalle</button>
-        </tr>
-        <tr>
-            <th>2</th>
-            <td>Detergente</td>
-            <td>$5</td>
-            <button class="tableButton" [routerLink]="['/products','yellow','Detergente']">Detalle</button>
-        </tr>
-        <tr>
-            <th>3</th>
-            <td>Limpia vidrios</td>
-            <td>$7</td>
-            <button class="tableButton" [routerLink]="['/products','green','Limpia vidrios']">Detalle</button>
+        <tr *ngFor="let productItem of productList">
+            <th>{{productItem.id}}</th>
+            <td>{{productItem.name}}</td>
+            <td [ngClass]="{'color-red': productItem.price<0}">{{productItem.price | currency}}</td>
+            <td><button class="tableButton" [routerLink]="['/products',productItem.id]">Detalle</button></td>
         </tr>
     </tbody>
     <tfoot>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Productos,productList } from '../products/products.mock';
 
 @Component({
   selector: 'app-product-detail',
@@ -11,14 +12,24 @@ export class ProductDetailComponent implements OnInit{
   
   constructor(private _route: ActivatedRoute){}
 
-  producto?: string;
-  categoria?: string;
+  productList:Productos[] = productList;
+  producto?:Productos;
+
+  loading:boolean = true;
+
+  varColor?:string;
 
   ngOnInit(): void {
-    this._route.params.subscribe(param => {
-      this.producto = param['productId'];
-      this.categoria = param['category'];
-    })
+    
+    setTimeout(() => {
+      this._route.params.subscribe(param => {
+        this.producto = productList.find(item => item.id==param['productId']);
+        
+        this.varColor = this.producto?.price as number < 0 ? 'red': ''
+        this.loading = false
+      })
+    }, 1500);
+
   }
 
 }
