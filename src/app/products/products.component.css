@@ -22,3 +22,8 @@ table, th, td {
 }
 
 /*Estilos de la tabla*/
+
+.color-red{
+    color: red;
+    font-weight: bold;
+}

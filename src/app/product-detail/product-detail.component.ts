@@ -15,10 +15,21 @@ export class ProductDetailComponent implements OnInit{
   productList:Productos[] = productList;
   producto?:Productos;
 
+  loading:boolean = true;
+
+  varColor?:string;
+
   ngOnInit(): void {
-    this._route.params.subscribe(param => {
-      this.producto = productList.find(item => item.id==param['productId']);
-    })
+    
+    setTimeout(() => {
+      this._route.params.subscribe(param => {
+        this.producto = productList.find(item => item.id==param['productId']);
+        
+        this.varColor = this.producto?.price as number < 0 ? 'red': ''
+        this.loading = false
+      })
+    }, 1500);
+
   }
 
 }

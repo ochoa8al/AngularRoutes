@@ -1,5 +1,11 @@
 <h2>Detalle del producto seleccionado:</h2>
-<h3>ID: {{producto?.id}}</h3>
-<h3>Nombre: {{producto?.name}}</h3>
-<h3>Precio: {{producto?.price | currency}}</h3>
-<h3>Descripción: {{producto?.description}}</h3>
+<ng-container *ngIf="!loading">
+    <h3>ID: {{producto?.id}}</h3>
+    <h3>Nombre: {{producto?.name}}</h3>
+    <h3>Precio: <span [ngStyle]="{'color': varColor}"> {{producto?.price | currency}}</span></h3>
+    <h3 *ngIf="producto?.description">Descripción: {{producto?.description}}</h3>
+</ng-container>
+<ng-container *ngIf="loading">
+    <strong><i>Cargando Información...</i></strong>
+</ng-container>
+
