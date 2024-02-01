@@ -1,1 +1,17 @@
-<p>contact works!</p>
+<div class="container">
+    <form [formGroup]="miFormulario" (ngSubmit)="Enviar()">
+        <div class="mb-3">
+            <label for="nombreContacto" class="form-label">Nombre:</label>
+            <input type="input" [ngClass]="{'is-invalid': hayError('nombre','required')}" class="form-control" id="nombreContacto" formControlName="nombre">
+            <div class="text-danger" *ngIf="hayError('nombre','required')">Nombre es requerido</div>
+            <div class="text-danger" *ngIf="hayError('nombre','minlength')">El nombre debe tener mínimo 3 caracteres</div>
+          </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Correo:</label>
+          <input type="email" [ngClass]="{'is-invalid': hayError('correo','email') || hayError('correo','required')}" class="form-control" id="exampleInputEmail1" formControlName="correo">
+          <div class="text-danger" *ngIf="hayError('correo','required')">Correo eléctronico requerido</div>
+          <div class="text-danger" *ngIf="hayError('correo','email')">Formato de correo invalido</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
